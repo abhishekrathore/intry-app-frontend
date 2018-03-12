@@ -1,0 +1,89 @@
+
+<!-- Edit Job Modal -->
+<div class="relative" *ngIf="showModalData">
+  <i class=" fa fa-close fa-1x close-button" aria-hidden="true" (click)="onNoClick()"></i>
+
+  <div class="example-container">
+    <form class="example-form">
+      <mat-form-field class="example-full-width display-table">
+        <input required matInput [(ngModel)]="data.employment.company_name" placeholder="Company Name" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field class="example-full-width display-table">
+        <input required matInput [(ngModel)]="data.employment.job_title" placeholder="Job Title" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field class="example-full-width display-table ">
+        <!-- <input required matInput [(ngModel)]="data.employment.employment_type" placeholder="Employment Type" [ngModelOptions]="{standalone: true}"> -->
+    <mat-select placeholder="Job Role" [(ngModel)]="data.employment.employment_type" [ngModelOptions]="{standalone: true}">
+      <mat-option *ngFor="let jobs of jobRole" [value]="jobs">{{jobs}}</mat-option>
+    </mat-select>
+      </mat-form-field>
+             
+      <mat-form-field class="example-full-width display-table desc-area">
+        <textarea required matInput [(ngModel)]="data.employment.description" placeholder="Description of Responsibilities" [ngModelOptions]="{standalone: true}"></textarea>
+      </mat-form-field>
+      <div style="display:flex">
+        <mat-form-field class="half-width">
+          <input required matInput [matDatepicker]="picker1" placeholder="Joining date" [(ngModel)]="data.employment.joning_date" [ngModelOptions]="{standalone: true}">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="half-width">
+          <input required matInput [matDatepicker]="picker2" placeholder="Leaving date" [(ngModel)]="data.employment.leaving_date"
+            [ngModelOptions]="{standalone: true}">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div mat-dialog-actions *ngIf="showModalData">
+      
+        <button mat-button [mat-dialog-close]="data.employment" class="button-style">Save</button>
+      </div>
+    </form>
+
+
+  </div>
+</div>
+<!-- Add Job modal -->
+<div class="relative" *ngIf="!showModalData">
+  <i class=" fa fa-close fa-1x close-button" aria-hidden="true" (click)="onNoClick()"></i>
+
+  <div class="example-container">
+    <form>
+      <mat-form-field class="example-full-width display-table">
+        <input required matInput [(ngModel)]="person.company_name" placeholder="Company Name" [ngModelOptions]="{standalone: true}"
+          required #emailField="ngModel">
+      </mat-form-field>
+      <mat-form-field class="example-full-width display-table">
+        <input required matInput [(ngModel)]="person.job_title" placeholder="Job Title" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field class="example-full-width display-table">
+        <mat-select placeholder="Job Role" [(ngModel)]="person.employment_type" [ngModelOptions]="{standalone: true}">
+          <mat-option *ngFor="let jobs of jobRole" [value]="jobs">{{jobs}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width display-table desc-area">
+        <textarea required matInput row="7" [(ngModel)]="person.description" placeholder="Description of Responsibilities" [ngModelOptions]="{standalone: true}"></textarea>
+      </mat-form-field>
+      <div style="display:flex">
+        <mat-form-field class="half-width">
+          <input required matInput [matDatepicker]="picker1" placeholder="Joining date" [(ngModel)]="person.joning_date" [ngModelOptions]="{standalone: true}"
+            readonly>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+          <input required matInput [matDatepicker]="picker2" placeholder="Leaving date" [(ngModel)]="person.leaving_date" [ngModelOptions]="{standalone: true}"
+            readonly>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div mat-dialog-actions *ngIf="!showModalData">
+        <button mat-button [mat-dialog-close]="person" class="button-style" type="submit" >Save</button>
+      </div>
+    </form>
+
+
+  </div>
+</div>
