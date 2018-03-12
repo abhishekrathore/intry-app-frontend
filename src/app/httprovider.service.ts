@@ -8,25 +8,22 @@ export class HttproviderService {
     const req = this.http.post(this.url, result)
       .subscribe(
       res => {
-        console.log(res);
         var data: any = res;
         items.unshift(data.data);
       },
       err => {
-        console.log("Error occured");
+        console.log(err);
       }
       );
   }
   
   rearrangedata(items) { 
-    console.log(items);
     return this.http.put( this.url+'rearrange', items)
       .subscribe(
       res => {
-        console.log(res);
       },
       err => {
-        console.log("Error occured");
+        console.log(err);
       }
       );
   }
@@ -50,20 +47,18 @@ export class HttproviderService {
       res => {
       },
       err => {
-        console.log("Error occured");
+        console.log(err);
       }
       );
   }
   updateuserData(i,items) {
-    console.log(i);
-    console.log(items[i]);
     var id = items[i]._id;
     return this.http.put(this.url + id, items[i])
       .subscribe(
       res => {
       },
       err => {
-        console.log("Error occured");
+        console.log(err);
       }
       );
   }

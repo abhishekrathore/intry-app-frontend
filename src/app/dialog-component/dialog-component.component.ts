@@ -23,16 +23,13 @@ export class DialogComponentComponent{
     public dialogRef: MatDialogRef<DialogComponentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     if (data) {
-      console.log(data);
       this.showModalData = true;
     }
     else {
-
       this.showModalData = false;
     }
   }
   saveData(person) { 
-    console.log(person);
     this.dialogRef.close();
   }
   onNoClick(): void {

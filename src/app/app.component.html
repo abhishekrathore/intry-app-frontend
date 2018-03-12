@@ -9,14 +9,14 @@
   <div class="text-center margin-top-20 grey-bg">
     <button mat-raised-button (click)="createuserData()" color="primary">Add Job</button>
   </div>
-  <div>
+  <div class="list-div">
     <ul [dragula]='"first-bag"' [dragulaModel]='items' class="grey-bg">
       <li *ngFor="let item of items,let i = index" id="Location{{id}}">
         <div class="card all-scroll">
           <div class="display-flex center-align">
             <div>
-              <img src="https://media.licdn.com/mpr/mpr/shrinknp_100_100/AAEAAQAAAAAAAAJ6AAAAJGE4ZTJlMjM1LTJhN2QtNGEyMi04YjA0LTdkZWQ5YzZmZjNiYg.png"
-                alt="Avatar" class="image-style">
+              <img src="http://icons.iconarchive.com/icons/froyoshark/enkel/256/Bitcoin-icon.png"
+                alt="Avatar" class="image-style image-height">
             </div>
             <div class="container padding-right-80">
               <h3 class="margin-bottom-0">

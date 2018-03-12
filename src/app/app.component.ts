@@ -33,46 +33,33 @@ export class AppComponent {
       sanitizer.bypassSecurityTrustResourceUrl('assets/img/examples/thumbup-icon.svg'));
     this.getUserdata();
     dragulaService.drag.subscribe((value) => {
-      console.log(`drag: ${value[0]}`);
       this.onDrag(value.slice(1));
-      console.log('drag subscribe')
     });
     dragulaService.drop.subscribe((value) => {
-      console.log(`drop: ${value[0]}`);
       this.onDrop(value.slice(1));
     });
     dragulaService.over.subscribe((value) => {
-      console.log(`over: ${value[0]}`);
       this.onOver(value.slice(1));
     });
     dragulaService.out.subscribe((value) => {
-      console.log(`out: ${value[0]}`);
       this.onOut(value.slice(1));
     });
   }
   private onDrag(args) {
     let [e, el] = args;
-    // do something 
-    console.log('onDrag')
   }
   
   private onDrop(args) {
     let [e, el] = args;
-    console.log(this.items);
-    console.log(this.arr);
     this.HttproviderService.rearrangedata(this.items)
   }
 
   private onOver(args) {
-    console.log('onOver')
     let [e, el, container] = args;
-    // do something 
   }
 
   private onOut(args) {
-    console.log('onOut')
     let [e, el, container] = args;
-    // do something 
   }
   showDeleteModal(i) { 
   
@@ -82,16 +69,9 @@ export class AppComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       if (result) { 
         this.deleteuserData(i)
       }
-      // console.log('The dialog was closed');
-      // if (result) {
-      //   console.log(result);
-      //   this.items[i] = result;
-      //   this.HttproviderService.updateuserData(i, this.items);
-      // }
     });
   }
   createuserData() { 
@@ -99,23 +79,19 @@ export class AppComponent {
       width: '750px',
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       if (result) {
        this.HttproviderService.createUserData(result,this.items);
       }
     });
   }
   openDialog(i): void {
-    console.log(this.items[i]);
     let dialogRef = this.dialog.open(DialogComponentComponent, {
       width: '750px',
       data: { name: this.name, employment: Object.assign({}, this.items[i])}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       if (result) { 
-        console.log(result);
         this.items[i] = result;
         this.HttproviderService.updateuserData(i,this.items);
       }
@@ -132,7 +108,6 @@ export class AppComponent {
     var __this = this
     this.Loading = true;
     this.HttproviderService.getUserData().then(function (data: any) {
-      console.log(data);
       __this.items = data.data;
       __this.Loading = false;
     });
