@@ -1,0 +1,7 @@
+.danger-button{
+  background-color: red;
+    color: white;
+}
+.justify-end{
+  justify-content: flex-end;
+}
