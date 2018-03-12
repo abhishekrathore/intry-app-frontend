@@ -29,8 +29,8 @@
                 <span class="responsibilities-text-style">Responsibilities : </span>{{item.description}}</p>
               <p>{{item.joning_date | date: 'dd/MM/yyyy'}} - {{item.leaving_date | date: 'dd/MM/yyyy'}}</p>
               <div>
-                <i class=" fa fa-edit fa-2x  abso-icon edit-icon-style" aria-hidden="true" (click)="openDialog(i)"></i>
-                <i class=" fa fa-trash fa-2x  abso-icon trash-icon-style " aria-hidden="true" (click)="showDeleteModal()"></i>
+                <i class=" fa fa-edit fa-2x  abso-icon edit-icon-style pointer" aria-hidden="true" (click)="openDialog(i)"></i>
+                <i class=" fa fa-trash fa-2x  abso-icon trash-icon-style pointer" aria-hidden="true" (click)="showDeleteModal(i)"></i>
               </div>
             </div>
           </div>

@@ -5,6 +5,18 @@ body{
 .grey-bg{
     background: #fafafa;
 }
+.dialog-body{
+  height: 150px;
+}
 .flex{
   display: flex;
+}
+.flex-column{
+  flex-direction: column;
+}
+.flex-around{
+  justify-content: space-around;
+}
+.pointer{
+  cursor: pointer;
 }

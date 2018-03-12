@@ -74,13 +74,18 @@ export class AppComponent {
     let [e, el, container] = args;
     // do something 
   }
-  showDeleteModal() { 
+  showDeleteModal(i) { 
+  
     let dialogRef = this.dialog.open(DeleteModalComponent, {
-      width: '500px',
-      height: '300px'
+      width: '400px',
+      height: '200px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if (result) { 
+        this.deleteuserData(i)
+      }
       // console.log('The dialog was closed');
       // if (result) {
       //   console.log(result);

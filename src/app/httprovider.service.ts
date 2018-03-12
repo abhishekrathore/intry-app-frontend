@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class HttproviderService {
-  url = 'http://192.168.0.135:3000/employment/'
+  url = 'http://138.68.227.241:3000/employment/'
   constructor(private http: HttpClient) { }
   createUserData(result, items) { 
-    const req = this.http.post('http://192.168.0.135:3000/employment/', result)
+    const req = this.http.post(this.url, result)
       .subscribe(
       res => {
         console.log(res);
@@ -20,7 +20,7 @@ export class HttproviderService {
   
   rearrangedata(items) { 
     console.log(items);
-    return this.http.put('http://192.168.0.135:3000/employment/rearrange', items)
+    return this.http.put( this.url+'rearrange', items)
       .subscribe(
       res => {
         console.log(res);
@@ -32,7 +32,7 @@ export class HttproviderService {
   }
   getUserData() {
     return new Promise((resolve,reject) => {
-      const req = this.http.get('http://192.168.0.135:3000/employment/')
+      const req = this.http.get(this.url)
         .subscribe(
         res => {
           resolve(res);
@@ -44,7 +44,7 @@ export class HttproviderService {
     });
   }
   deleteUserData(id) { 
-    const url = 'http://192.168.0.135:3000/employment/' + id;
+    const url = this.url + id;
     return this.http.delete(url)
       .subscribe(
       res => {
@@ -58,7 +58,7 @@ export class HttproviderService {
     console.log(i);
     console.log(items[i]);
     var id = items[i]._id;
-    return this.http.put('http://192.168.0.135:3000/employment/' + id, items[i])
+    return this.http.put(this.url + id, items[i])
       .subscribe(
       res => {
       },

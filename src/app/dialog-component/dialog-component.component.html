@@ -1,7 +1,8 @@
 
 <!-- Edit Job Modal -->
 <div class="relative" *ngIf="showModalData">
-  <i class=" fa fa-close fa-1x close-button" aria-hidden="true" (click)="onNoClick()"></i>
+  <h2 mat-dialog-title>Edit Job</h2>
+  <i class=" fa fa-close fa-2x close-button" aria-hidden="true" (click)="onNoClick()"></i>
 
   <div class="example-container">
     <form class="example-form">
@@ -37,7 +38,7 @@
       </div>
       <div mat-dialog-actions *ngIf="showModalData">
       
-        <button mat-button [mat-dialog-close]="data.employment" class="button-style">Save</button>
+        <button mat-button [mat-dialog-close]="data.employment" class="button-style pointer">Save</button>
       </div>
     </form>
 
@@ -46,7 +47,8 @@
 </div>
 <!-- Add Job modal -->
 <div class="relative" *ngIf="!showModalData">
-  <i class=" fa fa-close fa-1x close-button" aria-hidden="true" (click)="onNoClick()"></i>
+  <h2 mat-dialog-title>Add Job</h2>
+  <i class=" fa fa-close fa-2x close-button" aria-hidden="true" (click)="onNoClick()"></i>
 
   <div class="example-container">
     <form>

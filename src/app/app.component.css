@@ -61,6 +61,9 @@ margin-top: 20px;
 .container {
     padding: 2px 16px;
 }
+.pointer{
+  cursor: pointer;
+}
 .edit-button-style{
   position: absolute;
     top: 10px;

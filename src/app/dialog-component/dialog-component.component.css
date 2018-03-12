@@ -104,10 +104,16 @@ color: #0084bf;
     bottom: 30px;
     right: 35px;
 }
+.pointer{
+  cursor: pointer;
+}
 .close-button{
     position: absolute;
     right: 10px;
+    top: 0px;
     z-index: 1000000;
+    color: red;
+    cursor: pointer;
 }
 .relative{
       position: relative;
